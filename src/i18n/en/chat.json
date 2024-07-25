@@ -1,0 +1,5 @@
+{
+    "chat.not_found": "Chat not found",
+    "chat.not_a_partcipant": "You are not a participant of this chat",
+    "chat.please_provide_message": "Message can not be empty"
+}

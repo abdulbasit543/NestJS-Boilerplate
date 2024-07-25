@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+    db:
+        image: 'postgis/postgis:12-3.3'
+        container_name: api.db
+        ports:
+            - 5432:5432
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=click123
+            - POSTGRES_DB=api_db
+        volumes:
+            - 'api_postgres_data:/var/lib/postgresql'
+
+    redis:
+        container_name: api.redis
+        image: 'bitnami/redis:6.0.16'
+        ports:
+            - 6379:6379
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+        volumes:
+            - 'api_redis_data:/bitnami'
+
+volumes:
+    api_postgres_data:
+        external: true
+    api_redis_data:
+        external: true

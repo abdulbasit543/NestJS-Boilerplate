@@ -1,0 +1,22 @@
+image: hassanmehdi98/web:master
+
+pipelines:
+    branches:
+        custom:
+            - step:
+                  name: Deployment to dev server
+                  deployment: dev
+                  caches:
+                      - node
+                  script:
+                      - wget -O - https://raw.githubusercontent.com/hassanmehdi98/pipeline-env/main/script.sh | bash -s .env.example .env
+                      - wget -O - https://raw.githubusercontent.com/shahzaib-sheikh/replace-env-vars/master/replace-env-vars.sh | bash -s docker-compose.dev.yml docker-compose.yml DOCKER
+                      - npm install
+                      - npm run build
+                      - ssh ubuntu@54.87.250.146 "mkdir -p ~/api"
+                      - rsync -av ./docker-compose.yml ./package.json ./package-lock.json ./.env ./dist ./prisma ./ecosystem.config.js -e ssh ubuntu@54.87.250.146:~/api
+                      - ssh ubuntu@54.87.250.146 "cd ~/api && npm ci --production"
+                      - ssh ubuntu@54.87.250.146 "cd ~/api && docker volume create --name=api_postgres_data && docker volume create --name=api_redis_data"
+                      - ssh ubuntu@54.87.250.146 "cd ~/api && docker-compose up -d"
+                      - ssh ubuntu@54.87.250.146 "cd ~/api && npm run db:deploy"
+                      - ssh ubuntu@54.87.250.146 "cd ~/api && ENV_STR=dev pm2 start ecosystem.config.js"

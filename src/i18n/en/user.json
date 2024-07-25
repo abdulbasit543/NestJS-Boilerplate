@@ -1,0 +1,10 @@
+{
+    "user.registered": "User has been registered successfully",
+    "user.notfound": "User not found",
+    "user.email_already_exist": "User with this email already exist",
+    "user.profile_picture_removed": "User profile picture removed successfully",
+
+    "instructor.availability_days": "Invalid days. Please provide days in proper format. Example: Monday",
+    "instructor.timeslots": "Invalid timeslots. Please provide valid start and end time without overlapping",
+    "instructor.not_available": "Instructor is not available in this time/day. Please choose another time/day"
+}

@@ -1,0 +1,9 @@
+export enum SocketEventNames {
+    CONNECTED = 'CONNECTED',
+    DISCONNECTED = 'DISCONNECTED',
+    MESSAGE = 'MESSAGE',
+    TYPING = 'TYPING',
+    CHAT_START = 'CHAT_START',
+    CHAT_END = 'CHAT_END',
+    CHAT_JOIN = 'CHAT_JOIN',
+}

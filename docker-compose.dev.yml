@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+    db:
+        image: 'kartoza/postgis:14-3.2'
+        container_name: api.db
+        ports:
+            - DOCKER_POSTGRES_PORT:5432
+        environment:
+            - POSTGRES_USER=DOCKER_POSTGRES_USER
+            - POSTGRES_PASS=DOCKER_POSTGRES_PASS
+            - POSTGRES_DB=DOCKER_POSTGRES_DB
+        volumes:
+            - 'api_postgres_data:/var/lib/postgresql'
+
+    redis:
+        container_name: api.redis
+        image: 'bitnami/redis:6.0.16'
+        ports:
+            - DOCKER_REDIS_PORT:6379
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+        volumes:
+            - 'api_redis_data:/bitnami'
+
+volumes:
+    api_postgres_data:
+        external: true
+    api_redis_data:
+        external: true

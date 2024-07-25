@@ -1,0 +1,33 @@
+{
+    "welcome": "Welcome to NestJS API",
+
+    "common.success": "Success",
+    "common.updated": "Updated",
+    "common.deleted": "Deleted",
+    "common.created": "Created",
+    "common.verified": "Verified",
+
+    "errors.not_found": "Resource not found",
+    "errors.forbidden": "Access not allowed",
+    "errors.fatal": "Something went wrong",
+    "errors.bad_request": "Bad request",
+    "errors.unauthorized": "Unauthorized resource",
+    "errors.invalid_values": "Invalid values for ${values}",
+    "errors.unindentified": "Unidentified error occurred",
+
+    "auth.invalid_credentials": "Invalid credentials",
+    "auth.invalid_verification_code": "Invalid verification code",
+    "auth.new_email_same_as_previous": "New email can not be same as previous email",
+    "auth.verification_code_sent_on_email": "Verification code has been sent to your email",
+    "auth.email_changed": "Email address changed successfully",
+    "auth.password_changed": "Password changed successfully",
+    "auth.logged_out": "Logged out successfully",
+    "auth.email_already_exist": "User with this email already exists",
+    "auth.invalid_token": "Invalid or expired token",
+
+    "device.not_found": "Device not found",
+    "device.fcm_updated": "FCM token updated successfully",
+
+    "oauth.invalid_provider": "This OAuth login is not supported",
+    "oauth.invalid_token": "Invalid OAuth token"
+}

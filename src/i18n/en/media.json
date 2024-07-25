@@ -1,0 +1,8 @@
+{
+    "media.not_allowed": "Media not allowed",
+    "media.not_found": "Media not found",
+    "media.too_large": "Media size too large",
+    "media.service_not_available": "Media service not available",
+    "media.upload_success": "Media uploaded successfully",
+    "media.not_supported": "This type of media is not supported"
+}
